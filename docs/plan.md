@@ -37,3 +37,10 @@
 - ¿Samsung Health en Android 17 todavía acepta datos de relojes Tizen?
 - ¿La tienda de Tizen sigue en línea para carátulas?
 - ¿Las llamadas funcionan solo con el perfil Bluetooth estándar (HFP), sin las apps de Samsung?
+
+## Observaciones de hardware (2026-10-20)
+- Tras vincular, el reloj **se reinicia de repente** y el **porcentaje de batería brinca**. Estuvo guardado mucho tiempo → sospecha: batería degradada o descalibrada por descarga profunda.
+- [ ] Revisar que la tapa trasera no esté abultada
+- [ ] Apagar redes móviles (LTE sin chip busca señal y consume)
+- [ ] 2–3 ciclos completos de carga para recalibrar
+- [ ] Si persiste: batería de repuesto (buscar EB-BR810ABU y verificar compatibilidad con SM-R815U)
