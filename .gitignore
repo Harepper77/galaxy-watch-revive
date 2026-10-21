@@ -1,0 +1,8 @@
+# Nunca subir binarios de Samsung
+*.apk
+*.apks
+*.xapk
+apks/
+# Logs de depuración (pueden traer datos personales)
+logs/
+*.logcat
