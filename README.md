@@ -2,14 +2,21 @@
 
 Revivir relojes Samsung con **Tizen** (Galaxy Watch 2018, Gear S3, Gear Sport…) que Samsung dejó sin soporte, para que vuelvan a funcionar con **teléfonos Android recientes que no son Samsung**.
 
-> Estado: 🟢 **Vinculado** (2026-10-20) con la ruta A. Falta probar cada función.
+> Estado: 🟢 **Vinculado y reconocido por Galaxy Wearable** (2026-10-20) con la ruta A. Falta probar cada función.
 
 ## ⚡ Receta rápida (lo que funcionó)
 
 1. Desde Play Store: **Galaxy Wearable** y **Samsung Accessory Service** (versiones actuales).
 2. Descargar **Galaxy Watch Plugin 2.2.05.24020151** (Play lo bloquea en Android 17) y verificar la firma de Samsung: ver [docs/apks.md](docs/apks.md).
 3. Activar Depuración USB y ejecutar `adb install --bypass-low-target-sdk-block geargplugin-2.2.05.24020151.apk`
-4. En el reloj: *Conectar a nuevo teléfono* → en Galaxy Wearable: agregar dispositivo y aceptar todos los permisos.
+4. **En el reloj: elegir "iniciar sin vincular"** (modo independiente) y terminar su configuración básica.
+5. Ya con el reloj iniciado: en Galaxy Wearable → agregar dispositivo → elegir **"Galaxy Watch (XXXX)" sin "LE"** → aceptar todos los permisos.
+
+### Problemas conocidos
+- **Vincular directo desde la pantalla de vinculación del reloj se puede trabar** en *"Finalizando vinculación…"*: el teléfono manda un mensaje por SAP y el reloj nunca contesta. Solución: iniciar el reloj sin vincular primero (paso 4).
+- **Vinculación por la dirección LE**: si el teléfono se vincula con la dirección BLE del reloj, el plugin intenta RFCOMM a esa dirección y falla (`PAGE_TIMEOUT` / `SOCKET_CONNECT_FAILED`) → *"No fue posible conectarse con su reloj"*. Solución: olvidar todas las entradas "Galaxy Watch" en Ajustes → Bluetooth y vincular la entrada **sin "LE"**.
+- **No vincular desde los ajustes de Bluetooth de Android**, siempre desde Galaxy Wearable.
+- Si el reloj se restablece, el teléfono conserva claves viejas → olvidar el dispositivo antes de reintentar.
 
 ## El problema
 
