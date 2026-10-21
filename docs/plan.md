@@ -3,18 +3,21 @@
 ## Fase 0: Preparación
 - [x] Identificar el reloj (SM-R815U, Tizen 5.5, firmware DVH1)
 - [x] Identificar el teléfono (Pixel 10 Pro XL, Android 17)
-- [ ] Activar Opciones de desarrollador + Depuración USB en el Pixel
-- [ ] Instalar `platform-tools` (ADB) en Windows y verificar `adb devices`
+- [x] Activar Opciones de desarrollador + Depuración USB en el Pixel
+- [x] Instalar `platform-tools` (ADB) en Windows y verificar `adb devices`
 
-## Fase 1: Ruta A (sideload)
-- [ ] Investigar qué versiones de las 3 apps fueron las últimas en soportar Tizen en teléfonos no-Samsung
+## Fase 1: Ruta A (sideload) ✅ VINCULADO 2026-10-20
+
+> Bastó con instalar **solo el Galaxy Watch Plugin** 2.2.05.24020151 vía ADB. Galaxy Wearable 2.2.72 y Accessory Service 3.1.96 actuales de Play Store funcionaron tal cual.
+
+- [x] Investigar qué versiones de las 3 apps fueron las últimas en soportar Tizen en teléfonos no-Samsung
   - Galaxy Wearable (`com.samsung.android.app.watchmanager`)
   - Galaxy Watch Plugin (`com.samsung.android.geargplugin`)
   - Samsung Accessory Service (`com.samsung.accessory`)
-- [ ] Descargar de fuente confiable y registrar versión + SHA-256 en `docs/apks.md`
-- [ ] Instalar con `adb install --bypass-low-target-sdk-block` (Android 14+ bloquea apps con targetSdk antiguo)
+- [x] Descargar de fuente confiable y registrar versión + SHA-256 en `docs/apks.md`
+- [x] Instalar con `adb install --bypass-low-target-sdk-block` (Android 14+ bloquea apps con targetSdk antiguo)
 - [ ] Desinstalar o congelar la versión nueva de Galaxy Wearable si se pelea con la vieja
-- [ ] Intentar vincular → documentar cada error con captura y `adb logcat`
+- [x] Intentar vincular → documentar cada error con captura y `adb logcat`
 - [ ] Probar objetivos: notificaciones → salud → llamadas → carátulas
 
 ## Fase 2: Ruta B (si A falla)

@@ -2,7 +2,14 @@
 
 Revivir relojes Samsung con **Tizen** (Galaxy Watch 2018, Gear S3, Gear Sport…) que Samsung dejó sin soporte, para que vuelvan a funcionar con **teléfonos Android recientes que no son Samsung**.
 
-> Estado: 🟡 **Scoping / investigación** — todavía no hay nada probado.
+> Estado: 🟢 **Vinculado** (2026-10-20) con la ruta A. Falta probar cada función.
+
+## ⚡ Receta rápida (lo que funcionó)
+
+1. Desde Play Store: **Galaxy Wearable** y **Samsung Accessory Service** (versiones actuales).
+2. Descargar **Galaxy Watch Plugin 2.2.05.24020151** (Play lo bloquea en Android 17) y verificar la firma de Samsung: ver [docs/apks.md](docs/apks.md).
+3. Activar Depuración USB y ejecutar `adb install --bypass-low-target-sdk-block geargplugin-2.2.05.24020151.apk`
+4. En el reloj: *Conectar a nuevo teléfono* → en Galaxy Wearable: agregar dispositivo y aceptar todos los permisos.
 
 ## El problema
 
@@ -32,7 +39,7 @@ Fuera de alcance por ahora: LTE propio del reloj (es modelo de EE.UU.), Samsung 
 
 | Ruta | Idea | Estado |
 |---|---|---|
-| **A. Sideload de versiones viejas** | Instalar versiones compatibles de *Galaxy Wearable* + *Galaxy Watch Plugin* + *Samsung Accessory Service* vía `adb install --bypass-low-target-sdk-block` | ⏳ siguiente |
+| **A. Sideload del plugin** | Instalar el *Galaxy Watch Plugin* vía `adb install --bypass-low-target-sdk-block` | ✅ funcionó |
 | **B. Parchear APKs** | Si A falla por chequeos de compatibilidad o cuenta, quitar esas validaciones | — |
 | **C. Cliente propio (SAP)** | App propia que hable el protocolo Samsung Accessory con el reloj, al estilo Gadgetbridge | — |
 | **Carátulas por SDB** | Modo desarrollador del reloj + Tizen Studio para instalar `.wgt`/`.tpk` por Wi-Fi, sin tienda | idea |
